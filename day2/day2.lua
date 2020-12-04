@@ -51,7 +51,7 @@ local function partTwo(inputs)
         end
     end
 
-    return inPosition 
+    return inPosition
 end
 
 local file = io.open("./input.txt", "r")
