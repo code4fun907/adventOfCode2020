@@ -8,18 +8,6 @@ import (
     "sort"
 )
 
-// 128 rows on the plane
-
-// the first 7 characters get the row number
-// F means take the first half of seats
-// B means take the back half of seats
-
-// 8 columns on plane
-
-// the last 3 characters get the column number
-// R means take the upper half
-// L means take the lower half
-
 func partOne(input []string) int {
     highId := 0
 
@@ -47,7 +35,6 @@ func partOne(input []string) int {
             highId = (minRow * 8) + maxColumn
         }
     }
-
     return highId
 }
 
@@ -73,10 +60,8 @@ func partTwo(input []string) int {
                 minColumn = int(math.Ceil((float64(minColumn + maxColumn)) / 2))
             }
         }
-        
         seatIds = append(seatIds, (minRow * 8) + maxColumn)
     }
-    
     sort.Ints(seatIds)
 
     for i := 1; i < len(seatIds); i++ {
@@ -84,7 +69,6 @@ func partTwo(input []string) int {
             return seatIds[i] + 1
         }
     }
-
     return 0
 }
 
@@ -93,13 +77,11 @@ func readInput() []string {
     if err != nil {
         fmt.Println("There was an error")
     }
-
     return strings.Split(string(data), "\n")
 }
 
 func main() {
     input := readInput()
-
     fmt.Println("Part One Answer:", partOne(input))
     fmt.Println("Part Two Answer:", partTwo(input))
 }
